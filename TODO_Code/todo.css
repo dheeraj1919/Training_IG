@@ -1,0 +1,101 @@
+.container
+{
+    width: 100% ;
+    height: 700px;
+    background-image: url(image.jpg);
+    background-size: cover;
+    background-position: center;
+    color:white;
+}
+.title
+{
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    color:cadetblue;
+
+}
+.todoform
+{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.addBtn
+{
+    text-align: center;
+    right: -733;
+    color: cornflowerblue;
+}
+
+
+/* Style the list items */
+ul li 
+{
+        cursor: pointer;
+        position: relative;
+        padding: 12px 8px 12px 40px;
+        background: rgb(22, 21, 21);
+        font-size: 18px;
+        transition: 0.2s;
+
+        
+}
+
+ul li.checked 
+{
+    background: #888;
+    color: rgb(126, 27, 27);
+    text-decoration: line-through;
+}
+ul li.checked::before 
+{
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 78px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+fieldset
+{
+    position: relative;
+    margin-top: 2%;
+}
+ul li:nth-child(odd) {
+    position: relative;
+background: #424040;
+height: 25px;
+}
+ul li:nth-child(even) {
+    position: relative;
+background: rgb(202, 200, 200);
+height: 25px;
+}
+button
+{
+    content: '';
+position: absolute;
+    right: 0;
+    margin-bottom: 6px;
+    top: 20px;
+    padding: 8px 6px 2px 6px;
+}
+button::before
+{
+    content: "delete";
+}
+#btn
+{
+    text-align: right;
+    background: #352626;
+    padding:6px,6px,8px,8px;
+}
+legend
+{
+    color:#888;
+}
