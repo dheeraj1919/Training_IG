@@ -1,5 +1,5 @@
 let ctx;
-//import {eventhandler} from "./Classes/EventClasses.js";
+import {eventhandler} from "./EventClasses.js";
 onload = ()=>
 {
           const canvas= document.querySelector("#mygame");
