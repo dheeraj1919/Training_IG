@@ -1,0 +1,169 @@
+<html>
+    <head>
+                <style>
+                        ul 
+                        {
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        /* Style the list items */
+                        ul li 
+                        {
+                                cursor: pointer;
+                                position: relative;
+                                padding: 12px 8px 12px 40px;
+                                background: #eee;
+                                font-size: 18px;
+                                transition: 0.2s;
+                        }
+                        ul li.checked 
+                        {
+                            background: #888;
+                            color: rgb(126, 27, 27);
+                            text-decoration: line-through;
+                        }
+                        ul li.checked::before 
+                        {
+                            content: '';
+                            position: absolute;
+                            border-color: #fff;
+                            border-style: solid;
+                            border-width: 0 2px 2px 0;
+                            top: 10px;
+                            left: 78px;
+                            transform: rotate(45deg);
+                            height: 15px;
+                            width: 7px;
+                        }
+                        
+                        fieldset
+                        {
+                            position: relative;
+                            margin-top: 2%;
+                        }
+                        ul li:nth-child(odd) {
+                            position: relative;
+                        background: #f9f9f9;
+                        height: 25px;
+                        }
+                        ul li:nth-child(even) {
+                            position: relative;
+                        background: #fff;
+                        height: 25px;
+                        }
+                    button
+                        {
+                            content: '*';
+                        position: absolute;
+                            right: 0;
+                            margin-bottom: 6px;
+                            top: 20px;
+                            padding: 8px 6px 2px 6px;
+                        }
+                        button::before
+                        {
+                            content: "delete";
+                        }
+                        #btn
+                        {
+                            text-align: right;
+                            background: #f9f9f9;
+                            padding:6px,6px,8px,8px;
+                        }
+               </style>
+        </head>
+    <body>
+
+        <div id="myDIV" class="header">
+            <h2 style="margin:5px">My To Do List</h2>
+            <input type="text" id="myInput" placeholder="Title...">
+             <span id="btn">ADD</span>
+          </div>
+          <fieldset>
+              <legend>your To Do List</legend>
+              <ul id="output">
+                  
+                  
+                </ul>
+          </fieldset>
+    
+        
+    <script type="text/javascript">
+         var input=document.getElementById("myInput");
+       var output1 =document.getElementById("output");
+        var btn=document.getElementById("btn");
+        
+      
+      btn.onclick= function () {
+       
+                let value=input.value;
+              
+               //console.log(value);
+      
+                if (value ) {
+                  
+                    localStorage.setItem(value,value);
+                    
+                    location.reload();
+                  
+                } else {
+                    alert("nothing");
+                }
+            };
+                for(let i=0;i<localStorage.length;i++)
+                {
+                    var li = document.createElement("li");
+                    const inputValue = localStorage.key(i);
+                   var button1=document.createElement("Button");
+                   var text=  document.createTextNode("")
+                    
+                    
+                    var t = document.createTextNode(inputValue);
+                    button1.appendChild(text);
+                   button1.appendChild(t);
+                    
+                    li.appendChild(t);
+                    li.appendChild(button1);
+                    if (inputValue === '') {
+                        alert("You must write something!");
+                    } else {
+                        output.appendChild(li);
+                    }
+                   
+                }
+           //   Remove when click on the delete button
+                    var list=document.getElementsByTagName("button");
+                // console.log(list);
+                
+                    for(var i=0;i<list.length;i++)
+                    {
+                       
+                       // console.log(list[i]);
+                        list[i].addEventListener('click',function()
+                        {
+                           // console.log(c);
+                          
+                            var div = this.parentElement;
+                               console.log(div.innerText);
+                                localStorage.removeItem(div.innerText);
+                                div.style.display = "none";
+                        });
+                    }
+                    
+                         //  LIST ITEM CHECKED  
+                var list2 = document.querySelector('ul');
+               
+                    list2.addEventListener('click', function(event) {
+                   
+                        if (event.target.tagName === 'LI') {
+                        event.target.classList.toggle('checked');
+                    
+                        }
+                });
+
+                
+                
+            </script> 
+        </body>
+</html>
